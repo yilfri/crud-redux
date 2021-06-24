@@ -1,8 +1,8 @@
 import { ADD_PRODUCT, ADD_PRODUCT_SUCCESSFUL, ADD_PRODUCT_ERROR } from '../types';
 
 // Create new products.
-export function createNewProductActions() {
+export function createNewProductActions(product) {
 	return () => {
-		console.log('From action');
+		console.log(product);
 	};
 }

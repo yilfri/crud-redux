@@ -1,25 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Redux actions.
 import { createNewProductActions } from '../actions/productActions';
 import { useDispatch, useSelector } from 'react-redux';
 
 const NewProduct = () => {
+	// State.
+	const [name, setName] = useState('');
+	const [price, setPrice] = useState(0);
+
 	// Use dispatch create function
 	const dispatch = useDispatch();
 
 	// Call action from productAction.
-	const addProduct = () => dispatch(createNewProductActions());
+	const addProduct = (product) => dispatch(createNewProductActions(product));
 
 	// When user submi form.
 	const handleSubmitNewProduct = (e) => {
 		e.preventDefault();
 
 		// Validate form.
+		if (name.trim() === '' || price <= 0) {
+			return;
+		}
 		// Check errors.
 
 		//Create new product.
-		addProduct();
+		addProduct({
+			name,
+			price
+		});
 	};
 	return (
 		<div className="row justify-content-center mt-5">
@@ -36,6 +46,8 @@ const NewProduct = () => {
 									placeholder="Product Name"
 									className="form-control"
 									name="name"
+									value={name}
+									onChange={(e) => setName(e.target.value)}
 								/>
 							</div>
 
@@ -46,6 +58,8 @@ const NewProduct = () => {
 									placeholder="Product Price"
 									className="form-control"
 									name="price"
+									value={price}
+									onChange={(e) => setPrice(Number(e.target.value))}
 								/>
 							</div>
 
