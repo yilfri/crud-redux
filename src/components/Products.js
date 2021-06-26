@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Product from './Product';
 
 //Redux.
 import { useSelector, useDispatch } from 'react-redux';
@@ -8,10 +9,14 @@ const Products = () => {
 	// Use dispatch create function
 	const dispatch = useDispatch();
 
+	// Get productos from state of store.
+	const products = useSelector((state) => state.products.products);
+
 	// Get products when website load.
 	useEffect(() => {
 		const gettingProducts = () => dispatch(getProductsAction());
 		gettingProducts();
+		// eslint-disable-next-line
 	}, []);
 
 	return (
@@ -26,7 +31,11 @@ const Products = () => {
 						<th scope="col">Actions</th>
 					</tr>
 				</thead>
-				<tbody></tbody>
+				<tbody>
+					{products.lenght === 0
+						? 'No have products'
+						: products.map((product) => <Product key={product.id} product={product} />)}
+				</tbody>
 			</table>
 		</>
 	);
