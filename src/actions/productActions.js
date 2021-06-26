@@ -1,4 +1,11 @@
-import { ADD_PRODUCT, ADD_PRODUCT_SUCCESSFUL, ADD_PRODUCT_ERROR } from '../types';
+import {
+	ADD_PRODUCT,
+	ADD_PRODUCT_SUCCESSFUL,
+	ADD_PRODUCT_ERROR,
+	GET_PRODUCTS,
+	GET_PRODUCTS_SUCCESSFUL,
+	GET_PRODUCTS_ERROR
+} from '../types';
 import clientAxios from '../config/axios';
 import Swal from 'sweetalert2';
 
@@ -41,4 +48,16 @@ const addProductOk = (product) => ({
 const addProductError = (state) => ({
 	type: ADD_PRODUCT_ERROR,
 	payload: state
+});
+
+// Get productos from DB.
+export function getProductsAction() {
+	return async (dispatch) => {
+		dispatch(getProducts());
+	};
+}
+
+const getProducts = () => ({
+	type: GET_PRODUCTS,
+	payload: true
 });
