@@ -1,5 +1,6 @@
 import { ADD_PRODUCT, ADD_PRODUCT_SUCCESSFUL, ADD_PRODUCT_ERROR } from '../types';
 import clientAxios from '../config/axios';
+import Swal from 'sweetalert2';
 
 // Create new products.
 export function createNewProductActions(product) {
@@ -12,9 +13,15 @@ export function createNewProductActions(product) {
 
 			// If all ok, update state.
 			dispatch(addProductOk(product));
+
+			//Alert.
+			Swal.fire('¡Good!', 'Product added successful.', 'success');
 		} catch (error) {
 			// If have error, change status.
 			dispatch(addProductError(true));
+
+			//Alert.
+			Swal.fire('¡Oh!', 'Something is wrong.', 'error');
 		}
 	};
 }

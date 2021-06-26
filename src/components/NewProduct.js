@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { createNewProductActions } from '../actions/productActions';
 import { useDispatch, useSelector } from 'react-redux';
 
-const NewProduct = () => {
+const NewProduct = ({ history }) => {
 	// State.
 	const [name, setName] = useState('');
 	const [price, setPrice] = useState(0);
@@ -29,11 +29,14 @@ const NewProduct = () => {
 		}
 		// Check errors.
 
-		//Create new product.
+		// Create new product.
 		addProduct({
 			name,
 			price
 		});
+
+		// Redirection.
+		history.push('/');
 	};
 	return (
 		<div className="row justify-content-center mt-5">
