@@ -25,4 +25,7 @@ const addProductOk = (product) => ({
 });
 
 // Else...
-const addProductError = () => ({});
+const addProductError = (status) => ({
+	type: ADD_PRODUCT_ERROR,
+	payload: status
+});
