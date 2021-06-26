@@ -1,59 +1,59 @@
 {
-  "products": [
-    {
-      "id": 1,
-      "name": "Carrot Juice",
-      "precio": "31111"
-    },
-    {
-      "id": 2,
-      "name": "Orange Juice",
-      "price": "1"
-    },
-    {
-      "name": "Orange Juice",
-      "precio": "300",
-      "id": 3
-    },
-    {
-      "name": "Rib Eye 800g",
-      "precio": "200",
-      "id": 4
-    },
-    {
-      "name": "Strawberry Juice",
-      "precio": "200",
-      "id": 5
-    },
-    {
-      "name": "iMac",
-      "price": 2000,
-      "id": 6
-    },
-    {
-      "name": "Margarita",
-      "price": 175,
-      "id": 7
-    },
-    {
-      "name": "iPhone",
-      "price": 1200,
-      "id": 8
-    },
-    {
-      "name": "Toyota",
-      "price": 2300,
-      "id": 9
-    },
-    {
-      "name": "Toyota - Corolla Xi",
-      "price": 3600,
-      "id": 10
-    },
-    {
-      "name": "Helado",
-      "price": 5,
-      "id": 11
-    }
-  ]
+	"products": [
+		{
+			"id": 1,
+			"name": "Carrot Juice",
+			"price": "310"
+		},
+		{
+			"id": 2,
+			"name": "Orange Juice",
+			"price": "180"
+		},
+		{
+			"name": "Orange Juice",
+			"price": "300",
+			"id": 3
+		},
+		{
+			"name": "Rib Eye 800g",
+			"price": "200",
+			"id": 4
+		},
+		{
+			"name": "Strawberry Juice",
+			"price": "200",
+			"id": 5
+		},
+		{
+			"name": "iMac",
+			"price": 2000,
+			"id": 6
+		},
+		{
+			"name": "Margarita",
+			"price": 175,
+			"id": 7
+		},
+		{
+			"name": "iPhone",
+			"price": 1200,
+			"id": 8
+		},
+		{
+			"name": "Toyota",
+			"price": 2300,
+			"id": 9
+		},
+		{
+			"name": "Toyota - Corolla Xi",
+			"price": 3600,
+			"id": 10
+		},
+		{
+			"name": "Helado",
+			"price": 5,
+			"id": 11
+		}
+	]
 }
