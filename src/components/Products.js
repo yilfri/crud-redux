@@ -9,8 +9,10 @@ const Products = () => {
 	// Use dispatch create function
 	const dispatch = useDispatch();
 
-	// Get productos from state of store.
+	// Get data from state of store.
 	const products = useSelector((state) => state.products.products);
+	const error = useSelector((state) => state.products.error);
+	const loading = useSelector((state) => state.products.loading);
 
 	// Get products when website load.
 	useEffect(() => {
@@ -22,6 +24,13 @@ const Products = () => {
 	return (
 		<>
 			<h2 className="text-center my-5">Products List</h2>
+			{error ? (
+				<p className="font-weight-getByPlaceholderText alert alert-danger text-center mt-4">
+					Something is wrong
+				</p>
+			) : null}
+
+			{loading ? <p className="text-center">Loading...</p> : null}
 
 			<table className="table table-striped">
 				<thead className="bg-primary table-dark">
