@@ -1,13 +1,19 @@
 import { ADD_PRODUCT, ADD_PRODUCT_SUCCESSFUL, ADD_PRODUCT_ERROR } from '../types';
+import clientAxios from '../config/axios';
 
 // Create new products.
 export function createNewProductActions(product) {
-	return (dispatch) => {
+	return async (dispatch) => {
 		dispatch(addProduct());
 
 		try {
+			// Add in API
+			await clientAxios.post('/products', product);
+
+			// If all ok, update state.
 			dispatch(addProductOk(product));
 		} catch (error) {
+			// If have error, change status.
 			dispatch(addProductError(true));
 		}
 	};
@@ -25,7 +31,7 @@ const addProductOk = (product) => ({
 });
 
 // Else...
-const addProductError = (status) => ({
+const addProductError = (state) => ({
 	type: ADD_PRODUCT_ERROR,
-	payload: status
+	payload: state
 });

@@ -1,29 +1,34 @@
 {
-	"Products": [
-		{
-			"id": 1,
-			"name": "Carrot Juice",
-			"precio": "31111"
-		},
-		{
-			"id": 2,
-			"name": "Orange Juice",
-			"price": "1"
-		},
-		{
-			"name": "Orange Juice",
-			"precio": "300",
-			"id": 3
-		},
-		{
-			"name": "Rib Eye 800g",
-			"precio": "200",
-			"id": 4
-		},
-		{
-			"name": "Strawberry Juice",
-			"precio": "200",
-			"id": 5
-		}
-	]
+  "products": [
+    {
+      "id": 1,
+      "name": "Carrot Juice",
+      "precio": "31111"
+    },
+    {
+      "id": 2,
+      "name": "Orange Juice",
+      "price": "1"
+    },
+    {
+      "name": "Orange Juice",
+      "precio": "300",
+      "id": 3
+    },
+    {
+      "name": "Rib Eye 800g",
+      "precio": "200",
+      "id": 4
+    },
+    {
+      "name": "Strawberry Juice",
+      "precio": "200",
+      "id": 5
+    },
+    {
+      "name": "iMac",
+      "price": 2000,
+      "id": 6
+    }
+  ]
 }
