@@ -7,8 +7,20 @@ const initialState = {
 	loading: false
 };
 
+// eslint-disable-next-line
 export default function (state = initialState, action) {
 	switch (action.type) {
+		case ADD_PRODUCT:
+			return {
+				...state,
+				loading: action.payload
+			};
+		case ADD_PRODUCT_SUCCESSFUL:
+			return {
+				...state,
+				loading: false,
+				products: [...state.products, action.payload]
+			};
 		default:
 			return state;
 	}
