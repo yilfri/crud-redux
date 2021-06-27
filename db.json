@@ -51,9 +51,9 @@
       "id": 10
     },
     {
-      "name": "ghfgh",
-      "price": 56456,
-      "id": 11
+      "id": 11,
+      "name": "Toyota Hilux",
+      "price": "14500"
     }
   ]
 }

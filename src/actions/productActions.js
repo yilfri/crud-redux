@@ -9,7 +9,9 @@ import {
 	DELETE_PRODUCT_SUCCESSFUL,
 	DELETE_PRODUCT_ERROR,
 	GET_UPDATE_PRODUCT,
-	UPDATE_PRODUCT
+	UPDATE_PRODUCT,
+	UPDATE_PRODUCT_SUCCESSFUL,
+	UPDATE_PRODUCT_ERROR
 } from '../types';
 import clientAxios from '../config/axios';
 import Swal from 'sweetalert2';
@@ -135,13 +137,24 @@ export function editProductAction(product) {
 		dispatch(editProduct(product));
 
 		try {
-			const response = await clientAxios.put(`/products/${product.id}`);
-			console.log(response);
-		} catch (error) {}
+			await clientAxios.put(`/products/${product.id}`, product);
+			dispatch(updateProductOk(product));
+		} catch (error) {
+			console.log(error);
+			dispatch(updateProductError());
+		}
 	};
 }
 
-const editProduct = (product) => ({
-	type: UPDATE_PRODUCT,
+const editProduct = () => ({
+	type: UPDATE_PRODUCT
+});
+
+const updateProductOk = (product) => ({
+	type: UPDATE_PRODUCT_SUCCESSFUL,
 	payload: product
+});
+
+const updateProductError = () => ({
+	type: UPDATE_PRODUCT_ERROR
 });
