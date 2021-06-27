@@ -7,7 +7,8 @@ import {
 	GET_PRODUCTS_ERROR,
 	DELETE_PRODUCT,
 	DELETE_PRODUCT_SUCCESSFUL,
-	DELETE_PRODUCT_ERROR
+	DELETE_PRODUCT_ERROR,
+	UPDATE_PRODUCT
 } from '../types';
 import clientAxios from '../config/axios';
 import Swal from 'sweetalert2';
@@ -113,4 +114,16 @@ const deleteProductOk = () => ({
 const deleteProductError = () => ({
 	type: DELETE_PRODUCT_ERROR,
 	payload: true
+});
+
+// Set product to edit.
+export function editProduct(product) {
+	return (dispatch) => {
+		dispatch(editProductAction(product));
+	};
+}
+
+const editProductAction = (product) => ({
+	type: UPDATE_PRODUCT,
+	payload: product
 });

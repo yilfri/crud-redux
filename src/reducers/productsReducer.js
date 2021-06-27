@@ -7,7 +7,8 @@ import {
 	GET_PRODUCTS_ERROR,
 	DELETE_PRODUCT,
 	DELETE_PRODUCT_SUCCESSFUL,
-	DELETE_PRODUCT_ERROR
+	DELETE_PRODUCT_ERROR,
+	UPDATE_PRODUCT
 } from '../types';
 
 // Each reducer has it own state
@@ -15,7 +16,8 @@ const initialState = {
 	products: [],
 	error: null,
 	loading: false,
-	productDelete: null
+	productDelete: null,
+	productEdit: null
 };
 
 // eslint-disable-next-line
@@ -58,6 +60,11 @@ export default function (state = initialState, action) {
 				...state,
 				products: state.products.filter((product) => product.id !== state.productDelete),
 				productDelete: null
+			};
+		case UPDATE_PRODUCT:
+			return {
+				...state,
+				productEdit: action.payload
 			};
 		default:
 			return state;
