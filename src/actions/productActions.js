@@ -8,6 +8,7 @@ import {
 	DELETE_PRODUCT,
 	DELETE_PRODUCT_SUCCESSFUL,
 	DELETE_PRODUCT_ERROR,
+	GET_UPDATE_PRODUCT,
 	UPDATE_PRODUCT
 } from '../types';
 import clientAxios from '../config/axios';
@@ -117,13 +118,30 @@ const deleteProductError = () => ({
 });
 
 // Set product to edit.
-export function editProduct(product) {
+export function getEditProduct(product) {
 	return (dispatch) => {
-		dispatch(editProductAction(product));
+		dispatch(getEditProductAction(product));
 	};
 }
 
-const editProductAction = (product) => ({
+const getEditProductAction = (product) => ({
+	type: GET_UPDATE_PRODUCT,
+	payload: product
+});
+
+// Update product in Db.
+export function editProductAction(product) {
+	return async (dispatch) => {
+		dispatch(editProduct(product));
+
+		try {
+			const response = await clientAxios.put(`/products/${product.id}`);
+			console.log(response);
+		} catch (error) {}
+	};
+}
+
+const editProduct = (product) => ({
 	type: UPDATE_PRODUCT,
 	payload: product
 });

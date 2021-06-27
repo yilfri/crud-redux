@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { editProductAction } from '../actions/productActions';
 
 const EditProduct = () => {
-	// Producto to edit.
-	const product = useSelector((state) => state.products.productEdit);
+	// State of product.
+	const [product, setProduct] = useState({
+		name: '',
+		price: ''
+	});
 
-	if (!product) return null;
+	// Producto to edit.
+	const productEdit = useSelector((state) => state.products.productEdit);
+
+	useEffect(() => {
+		setProduct(productEdit);
+	}, [productEdit]);
+
+	const handleChangeProduct = (e) => {
+		setProduct({
+			...product,
+			[e.target.name]: e.target.value
+		});
+	};
 
 	const { name, price, id } = product;
+
+	// Product to edit.
+	const handleEdit = (e) => {
+		e.preventDefault();
+
+		editProductAction();
+	};
 
 	return (
 		<div className="row justify-content-center mt-5">
@@ -16,7 +39,7 @@ const EditProduct = () => {
 					<div className="card-body">
 						<h2 className="text-center mb-4 font-weight-bold">Edit Product</h2>
 
-						<form>
+						<form onSubmit={handleEdit}>
 							<div className="form-group">
 								<label>Product Name</label>
 								<input
@@ -25,6 +48,7 @@ const EditProduct = () => {
 									className="form-control"
 									name="name"
 									value={name}
+									onChange={handleChangeProduct}
 								/>
 							</div>
 
@@ -36,6 +60,7 @@ const EditProduct = () => {
 									className="form-control"
 									name="price"
 									value={price}
+									onChange={handleChangeProduct}
 								/>
 							</div>
 

@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 
 // Redux.
 import { useDispatch } from 'react-redux';
-import { deleteProductAction, editProduct } from '../actions/productActions';
+import { deleteProductAction, getEditProduct } from '../actions/productActions';
 
 const Product = ({ product }) => {
 	// Props destructuring
@@ -37,7 +37,7 @@ const Product = ({ product }) => {
 
 	// Handle click event - Edit Product.
 	const handleEditProduct = (product) => {
-		dispatch(editProduct(product));
+		dispatch(getEditProduct(product));
 		history.push(`/products/edit/${product.id}`);
 	};
 
