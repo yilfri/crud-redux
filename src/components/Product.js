@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 // Redux.
@@ -39,7 +39,6 @@ const Product = ({ product }) => {
 	const handleEditProduct = (product) => {
 		dispatch(editProduct(product));
 		history.push(`/products/edit/${product.id}`);
-		console.log(product);
 	};
 
 	return (

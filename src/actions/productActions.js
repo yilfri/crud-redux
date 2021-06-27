@@ -90,7 +90,7 @@ export function deleteProductAction(id) {
 		dispatch(deleteProduct(id));
 
 		try {
-			const response = await clientAxios.delete(`/products/${id}`);
+			await clientAxios.delete(`/products/${id}`);
 			dispatch(deleteProductOk());
 
 			// If has been deleted.
