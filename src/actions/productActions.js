@@ -4,7 +4,10 @@ import {
 	ADD_PRODUCT_ERROR,
 	GET_PRODUCTS,
 	GET_PRODUCTS_SUCCESSFUL,
-	GET_PRODUCTS_ERROR
+	GET_PRODUCTS_ERROR,
+	DELETE_PRODUCT,
+	DELETE_PRODUCT_SUCCESSFUL,
+	DELETE_PRODUCT_ERROR
 } from '../types';
 import clientAxios from '../config/axios';
 import Swal from 'sweetalert2';
@@ -77,5 +80,34 @@ const getProductsOk = (products) => ({
 
 const getProductsError = () => ({
 	type: GET_PRODUCTS_ERROR,
+	payload: true
+});
+
+// Delete product from Db.
+export function deleteProductAction(id) {
+	return async (dispatch) => {
+		dispatch(deleteProduct(id));
+
+		try {
+			const response = await clientAxios.delete(`/products/${id}`);
+			dispatch(deleteProductOk());
+		} catch (error) {
+			console.log(error);
+			deleteProductError();
+		}
+	};
+}
+
+const deleteProduct = (id) => ({
+	type: DELETE_PRODUCT,
+	payload: id
+});
+
+const deleteProductOk = () => ({
+	type: DELETE_PRODUCT_SUCCESSFUL
+});
+
+const deleteProductError = () => ({
+	type: DELETE_PRODUCT_ERROR,
 	payload: true
 });
