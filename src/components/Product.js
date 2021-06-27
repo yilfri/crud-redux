@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 // Redux.
 import { useDispatch } from 'react-redux';
@@ -14,7 +15,21 @@ const Product = ({ product }) => {
 
 	// Handle click event.
 	const handleDeleteProduct = (id) => {
-		const productSelect = dispatch(deleteProductAction(id));
+		// Ask to user if want delete product.
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to rever this",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!',
+			cancelButtonText: 'Cancel'
+		}).then((result) => {
+			if (result.value) {
+				dispatch(deleteProductAction(id));
+			}
+		});
 	};
 
 	return (
