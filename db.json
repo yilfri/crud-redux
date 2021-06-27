@@ -54,6 +54,11 @@
       "id": 11,
       "name": "Toyota Hilux",
       "price": "14500"
+    },
+    {
+      "name": "Yaris",
+      "price": 2000,
+      "id": 12
     }
   ]
 }
